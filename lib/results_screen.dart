@@ -9,10 +9,12 @@ class ResultScreen extends StatelessWidget {
     super.key,
     required this.chosenAnswer,
     required this.onRestart,
+    required this.onHome,
   });
 
   final List<String> chosenAnswer;
   final void Function() onRestart;
+  final void Function() onHome;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -66,7 +68,8 @@ class ResultScreen extends StatelessWidget {
               ),
               icon: const Icon(Icons.refresh),
               label: const Text('Restart Quiz'),
-            )
+            ),
+            ElevatedButton.icon(onPressed: onHome, icon: const Icon(Icons.arrow_back), label: const Text('Home Page'),),
           ],
         ),
       ),
